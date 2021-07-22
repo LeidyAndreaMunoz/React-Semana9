@@ -35,7 +35,16 @@ module.exports = {
                   'css-loader',
                   'sass-loader',
                 ],
-              },
+            },
+            {
+                test: /\.(png|gif|jpg)$/,
+                use: [
+                  {
+                    loader: 'file-loader',
+                    options: { name: 'assets/[hash].[ext]' },
+                  }
+                ],
+            },
         ]
     },
     plugins: [
@@ -50,6 +59,6 @@ module.exports = {
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
         compress: true,
-        port: 3000
+        port: 3001
     }
 };
